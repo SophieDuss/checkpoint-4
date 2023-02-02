@@ -8,31 +8,31 @@ DROP TABLE IF EXISTS `drink`;
 CREATE TABLE burger (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NULL
 );
 
 CREATE TABLE side (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NULL
 );
 
 CREATE TABLE desert (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NULL
 );
 
 CREATE TABLE drink (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NULL
 );
 
 CREATE TABLE menu (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) NULL,
    `burger_id` INT NOT NULL,
     FOREIGN KEY (burger_id) REFERENCES burger(id),
      `side_id` INT NOT NULL,

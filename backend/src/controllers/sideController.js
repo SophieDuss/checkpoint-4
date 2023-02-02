@@ -15,6 +15,13 @@ const sideController = {
       .then(([side]) => res.send(side))
       .catch((err) => console.warn(err));
   },
+
+  createSide: (req, res) => {
+    const name = req.body;
+    sideModel
+      .createOneSide(name)
+      .then((result) => res.status(201).send(`${result.insertId}`));
+  },
 };
 
 module.exports = sideController;

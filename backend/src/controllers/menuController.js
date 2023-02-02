@@ -15,6 +15,16 @@ const menuController = {
       .then(([menu]) => res.send(menu))
       .catch((err) => console.warn(err));
   },
+
+  deleteMenu: (req, res, next) => {
+    const { id } = req.params;
+    menuModel
+      .deleteOne(id)
+      .then(() => {
+        return res.status(200).send(`menu ${id} deleted`);
+      })
+      .catch((err) => next(err));
+  },
 };
 
 module.exports = menuController;

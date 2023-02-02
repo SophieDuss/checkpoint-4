@@ -10,7 +10,12 @@ const findBurgerByname = (name) => {
   return db.query("SELECT * FROM burger WHERE name=?", [name]);
 };
 
+const createOne = (name) => {
+  return db.query(`INSERT INTO burger (name) VALUES (?)`, [name]);
+};
+
 module.exports = {
   findAllBurger,
   findBurgerByname,
+  createOne,
 };

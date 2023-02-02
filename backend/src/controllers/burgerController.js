@@ -15,6 +15,13 @@ const burgerController = {
       .then(([burger]) => res.send(burger))
       .catch((err) => console.warn(err));
   },
+
+  createBurger: (req, res) => {
+    const name = req.body;
+    burgerModel
+      .createOne(name)
+      .then((result) => res.status(201).send(`${result.insertId}`));
+  },
 };
 
 module.exports = burgerController;

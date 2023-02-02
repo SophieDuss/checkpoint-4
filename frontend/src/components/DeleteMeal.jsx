@@ -1,9 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-function Menu() {
+function DeleteMeal() {
   const [menuList, setMenuList] = useState([]);
   const [selectedMenu, setselectedMenu] = useState("");
+  const { id } = useParams();
 
   const getAllMenu = () => {
     axios
@@ -19,26 +21,34 @@ function Menu() {
     setselectedMenu(e.target.value);
   };
 
+  const handleOnClick = () => {
+    axios
+      .delete(`http://localhost/5000/api/menu/${id}`)
+      .then(alert("menu deleted"));
+  };
   return (
     <div>
-      <h3>Select a Menu</h3>
+      <h3>Select the Menu You wish to Delete</h3>
       <form className="form">
         <label htmlFor="menu_select">
           Menu{" "}
           <select id="menu_select" onChange={handleOnChange}>
             <option value="">---</option>
             {menuList.map((menu) => (
-              <option key={menu.id} value={menu.id}>
+              <option key={menu.id} value={menu.name}>
                 {menu.name}
               </option>
             ))}
             ,
           </select>
           <div className="menu_container">{selectedMenu}</div>
+          <button type="button" onClick={handleOnClick}>
+            DELETE
+          </button>
         </label>
       </form>
     </div>
   );
 }
 
-export default Menu;
+export default DeleteMeal;
