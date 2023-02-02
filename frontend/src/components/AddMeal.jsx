@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import "./Addmeal.css";
 
 function AddMeal() {
   const [addBurger, setAddBurger] = useState("");
@@ -9,60 +10,73 @@ function AddMeal() {
   const [addDesert, setAddDesert] = useState("");
 
   const burgerOnChange = (e) => {
-    setAddBurger({ [e.target.name]: e.target.value });
+    setAddBurger({
+      ...addBurger,
+      [e.target.name]: e.target.value,
+    });
   };
+
   const submitBurger = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5000/api/burger", {
-        name: addBurger.name,
+        name: addBurger,
       })
-      .then(() => {
-        Navigate("/");
-      });
+      .then(alert("OK"));
   };
+
   const sideOnChange = (e) => {
-    setAddSide({ [e.target.name]: e.target.value });
+    setAddSide({
+      ...addSide,
+      [e.target.name]: e.target.value,
+    });
   };
   const submitSide = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5000/api/side", {
-        name: addSide.name,
+        name: addSide,
       })
       .then(() => {
         Navigate("/");
       });
   };
   const drinkOnChange = (e) => {
-    setAddDrink({ [e.target.name]: e.target.value });
+    setAddDrink({
+      ...addDrink,
+      [e.target.name]: e.target.value,
+    });
   };
   const submitDrink = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5000/api/drink", {
-        name: addDrink.name,
+        name: addDrink,
       })
       .then(() => {
         Navigate("/");
       });
   };
   const desertOnChange = (e) => {
-    setAddDesert({ [e.target.name]: e.target.value });
+    setAddDesert({
+      ...addDesert,
+      [e.target.name]: e.target.value,
+    });
   };
   const submitDesert = (e) => {
     e.preventDefault();
     axios
       .post("http://localhost:5000/api/desert", {
-        name: addDesert.name,
+        name: addDesert,
       })
       .then(() => {
         Navigate("/");
       });
   };
+
   return (
-    <div>
-      <h1 className="title"> ADD YOUR ITEMS!</h1>
+    <div className="box_item">
+      <h2 className="title"> ADD YOUR ITEMS!</h2>
       <form className="add__form" onSubmit={submitBurger} action="">
         <input
           className="name"

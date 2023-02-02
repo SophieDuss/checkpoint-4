@@ -11,7 +11,7 @@ const findBurgerByname = (name) => {
 };
 
 const createOne = (name) => {
-  return db.query(`INSERT INTO burger (name) VALUES (?)`, [name]);
+  return db.query(`INSERT INTO burger VALUES (?)`, [name]);
 };
 
 module.exports = {

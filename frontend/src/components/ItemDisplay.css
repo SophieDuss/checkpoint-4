@@ -1,0 +1,12 @@
+.itemBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h3 {
+  color: beige;
+}
+img {
+  width: 10vw;
+  height: 10vh;
+}

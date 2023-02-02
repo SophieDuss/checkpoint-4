@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ItemDisplay from "./ItemDisplay";
 
 function ItemList() {
   const [burgerList, setBurgerList] = useState([]);
@@ -70,7 +71,12 @@ function ItemList() {
             ))}
             ,
           </select>
-          <div className="burger_container">{selectedBurger}</div>
+          <div>
+            <ItemDisplay
+              name={selectedBurger.name}
+              image={selectedBurger.image}
+            />
+          </div>
         </label>
       </form>
       <h3>Select a Side</h3>
@@ -86,7 +92,9 @@ function ItemList() {
             ))}
             ,
           </select>
-          <div className="side_container">{selectedSide}</div>
+          <div>
+            <ItemDisplay name={selectedSide.name} image={selectedSide.image} />
+          </div>
         </label>
       </form>
       <h3>Select a Drink</h3>
@@ -102,7 +110,12 @@ function ItemList() {
             ))}
             ,
           </select>
-          <div className="drink_container">{selectedDrink}</div>
+          <div>
+            <ItemDisplay
+              name={selectedDrink.name}
+              image={selectedDrink.image}
+            />
+          </div>
         </label>
       </form>
       <h3>Select a Desert</h3>
@@ -118,7 +131,12 @@ function ItemList() {
             ))}
             ,
           </select>
-          <div className="desert_container">{selectedDesert}</div>
+          <div>
+            <ItemDisplay
+              name={selectedDesert.name}
+              image={selectedDesert.image}
+            />
+          </div>
         </label>
       </form>
     </div>

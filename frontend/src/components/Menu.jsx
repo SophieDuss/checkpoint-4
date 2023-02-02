@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ItemDisplay from "./ItemDisplay";
 
 function Menu() {
   const [menuList, setMenuList] = useState([]);
-  const [selectedMenu, setselectedMenu] = useState("");
+  const [selectedMenu, setselectedMenu] = useState();
 
   const getAllMenu = () => {
     axios
@@ -34,7 +35,9 @@ function Menu() {
             ))}
             ,
           </select>
-          <div className="menu_container">{selectedMenu}</div>
+          <div>
+            <ItemDisplay name={selectedMenu.name} image={selectedMenu.image} />
+          </div>
         </label>
       </form>
     </div>

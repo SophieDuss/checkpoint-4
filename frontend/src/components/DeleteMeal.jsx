@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ItemDisplay from "./ItemDisplay";
 
 function DeleteMeal() {
   const [menuList, setMenuList] = useState([]);
@@ -41,12 +42,14 @@ function DeleteMeal() {
             ))}
             ,
           </select>
-          <div className="menu_container">{selectedMenu}</div>
           <button type="button" onClick={handleOnClick}>
             DELETE
           </button>
         </label>
       </form>
+      <div>
+        <ItemDisplay name={selectedMenu.name} image={selectedMenu.image} />
+      </div>
     </div>
   );
 }
